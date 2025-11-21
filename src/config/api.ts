@@ -5,7 +5,6 @@ const isProduction = import.meta.env.PROD;
 export const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || (isProduction ? '/api' : 'http://localhost:3000');
 
 // Debug logging (remove in production if needed)
-if (import.meta.env.DEV) {
   console.log('API Config:', {
     PROD: import.meta.env.PROD,
     MODE: import.meta.env.MODE,
@@ -13,5 +12,4 @@ if (import.meta.env.DEV) {
     VITE_API_BASE_URL: import.meta.env.VITE_API_BASE_URL,
     API_BASE_URL,
   });
-}
 
