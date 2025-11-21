@@ -33,19 +33,3 @@ function getApiBaseUrl(): string {
 // Note: This will be evaluated once, but getApiBaseUrl() checks window at that time
 export const API_BASE_URL = getApiBaseUrl();
 
-// Always log to debug (helps identify the issue)
-// Execute at runtime when window is available
-if (typeof window !== 'undefined') {
-  const config = {
-    PROD: import.meta.env.PROD,
-    MODE: import.meta.env.MODE,
-    hostname: window.location.hostname,
-    isVercel: window.location.hostname.includes('vercel.app') || window.location.hostname.includes('vercel.com'),
-    VITE_API_BASE_URL: import.meta.env.VITE_API_BASE_URL,
-    API_BASE_URL,
-  };
-  console.log('[API Config]', config);
-  // Also log to window for easier debugging
-  (window as any).__API_CONFIG__ = config;
-}
-
